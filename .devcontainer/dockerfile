@@ -1,0 +1,24 @@
+# base image
+FROM python:3.10-slim-bullseye
+
+# update
+RUN apt-get update \
+    && apt-get install -y --no-install-recommends \
+    libglpk40 \
+    htop \
+    jq \
+    libxtst6 \
+    libxt6 \
+    xdg-utils \
+    nano \
+    python3-pip \
+    curl \
+    tar \
+    bzip2 \
+    gcc \
+    gfortran \
+    wget
+
+# install python packages
+COPY packages.txt packages.txt
+RUN pip install -r packages.txt
