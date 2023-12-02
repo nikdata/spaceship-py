@@ -1,0 +1,26 @@
+tasks:
+  # initial cleaning of raw input
+  # define script that needs to run
+  - source: scripts/get.py
+    # name of task
+    name: initial_cleaning
+    product:
+      # define output notebook file location
+      nb: output_notebook/initial_clean.ipynb
+      # define output data file location
+      data: output/initial_clean.csv
+  - source: scripts/split_column.py
+    name: split_columns
+    product:
+      nb: output_notebook/pre_clean.ipynb
+      data: output/pre_clean.csv
+  - source: scripts/descriptive_stats.py
+    name: descriptive_stats
+    product:
+      nb: output_notebook/descriptive_stats.ipynb
+      data: output/descriptive_stats.csv
+  - source: scripts/impute_missing.py
+    name: impute_missing_values
+    product:
+      nb: output_notebook/impute_missing.ipynb
+      data: output/imputed_data.csv
