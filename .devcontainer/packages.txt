@@ -12,3 +12,6 @@ polars==0.19.19
 altair==5.2.0
 vega
 pandas
+pyarrow
+vegafusion[embed]
+vl-convert-python
